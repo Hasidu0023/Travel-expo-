@@ -1,33 +1,32 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import LoadingScreen from "./src/app/LoadingScreen";
-import WelcomeScreen from "./src/app/WelcomeScreen";
-import SignInScreen from "./src/app/SignInScreen";
-import RegisterScreen from "./src/app/RegisterScreen";
 
-// Define all screens and their params
+import Welcome from "./src/app/Startup/Welcome";
+import Login from "./src/app/Auth/Login";
+import Register from "./src/app/Auth/Register";
+import Dashboard from "./src/app/Dashboard/Dashboard";
+
 export type RootStackParamList = {
-  Loading: undefined;
   Welcome: undefined;
-  SignIn: undefined;
+  Login: undefined;
   Register: undefined;
+  Dashboard: undefined;
 };
 
-// Create a typed stack navigator
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Loading"
+        initialRouteName="Welcome"
         screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen name="Loading" component={LoadingScreen} />
-        <Stack.Screen name="Welcome" component={WelcomeScreen} />
-        <Stack.Screen name="SignIn" component={SignInScreen} />
-        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Dashboard" component={Dashboard} />
       </Stack.Navigator>
     </NavigationContainer>
   );
