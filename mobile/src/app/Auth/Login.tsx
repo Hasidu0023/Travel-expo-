@@ -80,7 +80,7 @@ export default function Login({ navigation }: Props) {
     try {
       // ✅ Correct backend endpoint
       const response = await axios.post(
-        "http://172.20.10.3:5000/api/auth/login",
+        "http://192.168.8.176:5000/api/auth/login",
         { email, password }
       );
 
